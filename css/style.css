@@ -395,28 +395,28 @@ nav {
   font-size: 14px;
   font-weight: 700;
   padding: 3px 8px;
-  border-radius: 999px;
-  border: 1.5px solid currentColor;
+  border-radius: 6px;
+  border: none;
   margin-bottom: 3px;
 }
 .subj-en    { font-size: 11px; color: #94a3b8; margin-bottom: 2px; display: block; }
 .subj-teacher { font-size: 13px; color: #475569; display: block; }
 
 /* Subject colour palette */
-.s-chinese .subj-tag { background:#fff1f2; border-color:#fecdd3; color:#9f1239; }
-.s-math    .subj-tag { background:#eff6ff; border-color:#bfdbfe; color:#1e40af; }
-.s-english .subj-tag { background:#f0fdf4; border-color:#bbf7d0; color:#065f46; }
-.s-science .subj-tag { background:#fefce8; border-color:#fef08a; color:#854d0e; }
-.s-pe      .subj-tag { background:#fff7ed; border-color:#fed7aa; color:#9a3412; }
-.s-music   .subj-tag { background:#fdf4ff; border-color:#e9d5ff; color:#6b21a8; }
-.s-art     .subj-tag { background:#fef2f2; border-color:#fecaca; color:#991b1b; }
-.s-moral   .subj-tag { background:#f0fdfa; border-color:#99f6e4; color:#134e4a; }
-.s-labor   .subj-tag { background:#f7fee7; border-color:#d9f99d; color:#365314; }
-.s-classic .subj-tag { background:#fefce8; border-color:#fde68a; color:#92400e; }
-.s-club    .subj-tag { background:#ede9fe; border-color:#ddd6fe; color:#5b21b6; }
-.s-after   .subj-tag { background:#f8fafc; border-color:#e2e8f0; color:#475569; }
-.s-summary .subj-tag { background:#f1f5f9; border-color:#cbd5e1; color:#475569; }
-.s-meeting .subj-tag { background:#fdf4ff; border-color:#e9d5ff; color:#6b21a8; }
+.s-chinese .subj-tag { background:#fecdd3; color:#9f1239; }
+.s-math    .subj-tag { background:#bfdbfe; color:#1e40af; }
+.s-english .subj-tag { background:#bbf7d0; color:#065f46; }
+.s-science .subj-tag { background:#fef08a; color:#854d0e; }
+.s-pe      .subj-tag { background:#fed7aa; color:#9a3412; }
+.s-music   .subj-tag { background:#e9d5ff; color:#6b21a8; }
+.s-art     .subj-tag { background:#fecaca; color:#991b1b; }
+.s-moral   .subj-tag { background:#99f6e4; color:#134e4a; }
+.s-labor   .subj-tag { background:#d9f99d; color:#365314; }
+.s-classic .subj-tag { background:#fde68a; color:#92400e; }
+.s-club    .subj-tag { background:#ddd6fe; color:#5b21b6; }
+.s-after   .subj-tag { background:#e2e8f0; color:#475569; }
+.s-summary .subj-tag { background:#cbd5e1; color:#334155; }
+.s-meeting .subj-tag { background:#e9d5ff; color:#6b21a8; }
 
 /* ── Subject colour legend ───────────────── */
 .subj-legend {
@@ -429,8 +429,7 @@ nav {
   font-size: 12px;
   font-weight: 600;
   padding: 3px 10px;
-  border-radius: 999px;
-  border: 1.5px solid currentColor;
+  border-radius: 6px;
 }
 
 /* ── Duty table ──────────────────────────── */
