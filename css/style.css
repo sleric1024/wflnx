@@ -700,6 +700,22 @@ footer {
 .sched-table-mobile .subj-en { font-size: 9px; }
 .sched-table-mobile .subj-teacher { font-size: 10px; }
 
+@keyframes dmc-glow {
+  0%, 100% {
+    border-color: #c7d2fe;
+    box-shadow: var(--shadow), 0 0 0 0 rgba(99,102,241,.15);
+  }
+  50% {
+    border-color: #818cf8;
+    box-shadow: var(--shadow), 0 0 12px 3px rgba(99,102,241,.13);
+  }
+}
+
+.duty-mobile-card:not(.dmc-past) {
+  border: 2px solid #c7d2fe;
+  animation: dmc-glow 2.4s ease-in-out infinite;
+}
+
 /* ── Duty mobile cards ───────────────────── */
 .duty-cards-mobile { display: none; }
 .duty-mobile-cards { display: flex; flex-direction: column; gap: 10px; }
