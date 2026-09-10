@@ -246,8 +246,27 @@
     var ds    = date.y + '' + pad(date.mo) + pad(date.d);
     var boys  = boyChips.map(chipText).join('  ');
     var girls = girlChips.map(chipText).join('  ');
-    var desc  = '男生：' + boys + '\\n女生：' + girls;
-    if (noteText) desc += '\\n备注：' + noteText;
+
+    var lines = [
+      '男生：' + boys,
+      '女生：' + girls
+    ];
+    if (noteText) lines.push('备注：' + noteText);
+    lines.push(
+      '',
+      '【学生礼仪岗】7:35–7:55',
+      '· 7:35 前到校，书包先存传达室，绶带领取后归还',
+      '· 周一、周五穿正装，其余日穿校服',
+      '· 见教师：Good morning\\, teacher! 见同学：Good morning!',
+      '· 留意进校同学校服穿着及仪容仪表',
+      '',
+      '【家长护学岗】7:30 到岗',
+      '· 站于校门口周边车辆停靠区',
+      '· 引导送学车辆即停即走，协助低年级/雨天安全下车',
+      '· 维护秩序，避免聚集堵车，提醒学生排队入校',
+      '· 配合处理突发情况（遗落物品、轻微磕碰等）'
+    );
+
     return [
       'BEGIN:VCALENDAR',
       'VERSION:2.0',
@@ -257,7 +276,7 @@
       'DTSTART:' + ds + 'T073000',
       'DTEND:'   + ds + 'T080000',
       'SUMMARY:📋 Z3C 早上执勤',
-      'DESCRIPTION:' + desc,
+      'DESCRIPTION:' + lines.join('\\n'),
       'END:VEVENT',
       'END:VCALENDAR'
     ].join('\r\n');
