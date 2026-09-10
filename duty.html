@@ -333,19 +333,33 @@
       var chipsDiv = document.createElement('div');
       chipsDiv.className = 'dmc-chips';
       var boyChips = [], girlChips = [], lastChipRow;
-      [[2, 3], [4, 5]].forEach(function (pair, pairIdx) {
-        var chipRow = document.createElement('div');
-        chipRow.className = 'dmc-chips-row';
-        pair.forEach(function (ci) {
+
+      if (isPast) {
+        /* Past records: all 4 chips on one row */
+        var singleRow = document.createElement('div');
+        singleRow.className = 'dmc-chips-row';
+        [2, 3, 4, 5].forEach(function (ci) {
           var chip = tds[ci] && tds[ci].querySelector('.chip');
-          if (chip) {
-            chipRow.appendChild(chip.cloneNode(true));
-            (pairIdx === 0 ? boyChips : girlChips).push(chip);
-          }
+          if (chip) singleRow.appendChild(chip.cloneNode(true));
         });
-        chipsDiv.appendChild(chipRow);
-        lastChipRow = chipRow;
-      });
+        chipsDiv.appendChild(singleRow);
+        lastChipRow = singleRow;
+      } else {
+        /* Current term: boys row + girls row */
+        [[2, 3], [4, 5]].forEach(function (pair, pairIdx) {
+          var chipRow = document.createElement('div');
+          chipRow.className = 'dmc-chips-row';
+          pair.forEach(function (ci) {
+            var chip = tds[ci] && tds[ci].querySelector('.chip');
+            if (chip) {
+              chipRow.appendChild(chip.cloneNode(true));
+              (pairIdx === 0 ? boyChips : girlChips).push(chip);
+            }
+          });
+          chipsDiv.appendChild(chipRow);
+          lastChipRow = chipRow;
+        });
+      }
       card.appendChild(chipsDiv);
 
       /* Calendar button — only for current term, inlined at end of girls row */
