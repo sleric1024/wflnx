@@ -720,6 +720,22 @@ footer {
   animation: dmc-glow 2.4s ease-in-out infinite;
 }
 
+/* ── Duty rule info card ─────────────────── */
+.duty-rule-card {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: var(--r);
+  padding: 14px 16px;
+  margin-bottom: 24px;
+}
+.duty-rule-icon { font-size: 20px; line-height: 1.4; flex-shrink: 0; }
+.duty-rule-title { font-size: 14px; font-weight: 700; color: #1e40af; margin-bottom: 4px; }
+.duty-rule-body p { margin: 0; font-size: 14px; color: #334155; line-height: 1.65; }
+.duty-rule-body strong { color: #1e3a8a; }
+
 /* ── Duty mobile cards ───────────────────── */
 .duty-cards-mobile { display: none; }
 .duty-mobile-cards { display: flex; flex-direction: column; gap: 10px; }
