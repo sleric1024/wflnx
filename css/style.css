@@ -732,8 +732,7 @@ footer {
 .dmc-header .note-pill { flex-shrink: 0; }
 .dmc-header-space { flex: 1; }
 .dmc-chips { display: flex; flex-direction: column; gap: 8px; }
-.dmc-chips-row { display: flex; gap: 8px; flex-wrap: wrap; }
-.dmc-cal-row { justify-content: flex-end; margin-top: 4px; }
+.dmc-chips-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
 
 .dmc-cal-btn {
   display: inline-flex;
@@ -749,6 +748,7 @@ footer {
   cursor: pointer;
   white-space: nowrap;
   flex-shrink: 0;
+  margin-left: auto;
   box-shadow: 0 2px 8px rgba(79,70,229,.28);
   transition: opacity .15s, transform .15s;
 }
