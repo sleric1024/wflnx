@@ -336,6 +336,117 @@
 </main>
 
 <footer>© 2026 Z3C 班 · 湖州市上海世外教育南浔实验学校</footer>
+<script>
+(function () {
+  var built = false;
+
+  function expandRow(row) {
+    var tds = row.querySelectorAll('td');
+    var dayName = tds[0].textContent.trim();
+    var cells = [];
+    for (var i = 1; i < tds.length; i++) {
+      var td = tds[i];
+      var span = parseInt(td.getAttribute('colspan') || '1', 10);
+      cells.push(td);
+      for (var s = 1; s < span; s++) cells.push(td);
+    }
+    return { dayName: dayName, cells: cells };
+  }
+
+  function buildMobile() {
+    if (built) return;
+    built = true;
+
+    var orig       = document.querySelector('.sched-table');
+    var desktopWrap = document.querySelector('.scroll-wrap');
+    if (!orig || !desktopWrap) return;
+
+    var headRow1 = orig.querySelectorAll('thead tr:first-child th');
+    var headRow2 = orig.querySelectorAll('thead tr.time-row th');
+    var dayRows  = orig.querySelectorAll('tbody tr');
+
+    var periods = [];
+    for (var i = 1; i < headRow1.length; i++) {
+      periods.push({
+        name: headRow1[i].textContent.trim(),
+        time: headRow2[i] ? headRow2[i].textContent.trim() : ''
+      });
+    }
+
+    var days = [];
+    dayRows.forEach(function (row) { days.push(expandRow(row)); });
+
+    var table = document.createElement('table');
+    table.className = 'sched-table sched-table-mobile';
+
+    var thead = table.createTHead();
+    var htr   = thead.insertRow();
+    var th0   = document.createElement('th');
+    th0.textContent = '节次';
+    htr.appendChild(th0);
+    days.forEach(function (d) {
+      var th = document.createElement('th');
+      th.textContent = d.dayName;
+      htr.appendChild(th);
+    });
+
+    var tbody = table.createTBody();
+    periods.forEach(function (p, pi) {
+      var tr = tbody.insertRow();
+
+      var sample  = days[0] && days[0].cells[pi];
+      var isLunch = sample && sample.classList.contains('lunch-cell');
+
+      var labelTd = document.createElement('td');
+      labelTd.className = 'period-label-cell' + (isLunch ? ' period-lunch' : '');
+      labelTd.innerHTML  = '<strong>' + p.name + '</strong><span>' + p.time + '</span>';
+      tr.appendChild(labelTd);
+
+      days.forEach(function (d) {
+        var srcTd = d.cells[pi];
+        var td = document.createElement('td');
+        if (srcTd) {
+          td.className = srcTd.className;
+          td.innerHTML  = srcTd.innerHTML;
+          td.removeAttribute('colspan');
+          td.removeAttribute('style');
+        }
+        tr.appendChild(td);
+      });
+    });
+
+    table.appendChild(tbody);
+
+    var wrap = document.createElement('div');
+    wrap.className    = 'scroll-wrap sched-mobile-wrap';
+    wrap.style.display = 'none';
+    wrap.appendChild(table);
+    desktopWrap.insertAdjacentElement('afterend', wrap);
+  }
+
+  function applyLayout() {
+    var mobile      = window.innerWidth < 700;
+    var desktopWrap = document.querySelector('.scroll-wrap:not(.sched-mobile-wrap)');
+    var hint        = document.querySelector('.scroll-hint');
+
+    if (mobile) {
+      buildMobile();
+      var mobileWrap = document.querySelector('.sched-mobile-wrap');
+      if (desktopWrap) desktopWrap.style.display = 'none';
+      if (mobileWrap)  mobileWrap.style.display  = '';
+      if (hint)        hint.style.display         = 'none';
+    } else {
+      var mobileWrap = document.querySelector('.sched-mobile-wrap');
+      if (desktopWrap) desktopWrap.style.display = '';
+      if (mobileWrap)  mobileWrap.style.display  = 'none';
+      if (hint)        hint.style.display         = '';
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', applyLayout);
+  window.addEventListener('resize', applyLayout);
+})();
+</script>
 
 </body>
 </html>

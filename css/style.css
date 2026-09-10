@@ -657,7 +657,58 @@ footer {
   .nav-brand .class-badge { font-size: 13px; padding: 3px 10px; }
 }
 
-/* ── Math tool cards ─────────────────────── */
+/* ── Mobile-transposed schedule ──────────── */
+.sched-table-mobile {
+  min-width: unset;
+  width: 100%;
+}
+.sched-table-mobile thead tr:first-child th {
+  padding: 10px 4px;
+  font-size: 13px;
+}
+.sched-table-mobile td.period-label-cell {
+  background: #1e40af;
+  color: white;
+  text-align: center;
+  padding: 8px 4px;
+  vertical-align: middle;
+  width: 56px;
+  min-width: 56px;
+  border-right: 2px solid #1d3a8a;
+}
+.sched-table-mobile td.period-label-cell.period-lunch {
+  background: #f1f5f9;
+  color: #94a3b8;
+  border-right-color: #e2e8f0;
+}
+.sched-table-mobile td.period-label-cell strong {
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.3;
+}
+.sched-table-mobile td.period-label-cell span {
+  display: block;
+  font-size: 9px;
+  margin-top: 2px;
+  opacity: 0.82;
+}
+.sched-table-mobile td.subj-cell {
+  min-width: unset;
+  padding: 6px 2px;
+}
+.sched-table-mobile td.lunch-cell {
+  font-size: 11px;
+  padding: 6px 3px;
+  white-space: normal;
+}
+.sched-table-mobile .subj-tag {
+  font-size: 11px;
+  padding: 2px 4px;
+  letter-spacing: 0;
+}
+.sched-table-mobile .subj-en { font-size: 9px; }
+.sched-table-mobile .subj-teacher { font-size: 10px; }
 .math-tool-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
