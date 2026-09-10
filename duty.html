@@ -442,24 +442,26 @@
         secPast.classList.add('sec-past-toggle');
         if (!secPast._toggleReady) {
           secPast._toggleReady = true;
-          var chevron = document.createElement('span');
-          chevron.className = 'sec-past-chevron';
-          chevron.textContent = '▸';
-          secPast.appendChild(chevron);
+          var expandBtn = document.createElement('span');
+          expandBtn.className = 'sec-past-expand-btn';
+          expandBtn.textContent = '展开记录';
+          var sline = secPast.querySelector('.s-line');
+          secPast.insertBefore(expandBtn, sline);
           secPast.addEventListener('click', function () {
             if (window.innerWidth >= 700) return;
             var pastMobile = document.querySelector('.duty-cards-mobile');
             if (!pastMobile) return;
             var opening = pastMobile.style.display === 'none' || pastMobile.style.display === '';
             pastMobile.style.display = opening ? 'block' : 'none';
-            chevron.textContent = opening ? '▾' : '▸';
+            expandBtn.textContent = opening ? '收起 ▲' : '展开记录';
+            expandBtn.classList.toggle('sec-past-expand-open', opening);
             secPast.classList.toggle('sec-past-open', opening);
           });
         }
       } else {
         secPast.classList.remove('sec-past-toggle', 'sec-past-open');
-        var ch = secPast.querySelector('.sec-past-chevron');
-        if (ch) ch.textContent = '▸';
+        var btn = secPast.querySelector('.sec-past-expand-btn');
+        if (btn) { btn.textContent = '展开记录'; btn.classList.remove('sec-past-expand-open'); }
       }
     }
   }
