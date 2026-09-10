@@ -168,7 +168,7 @@ nav {
 /* ── Quick nav cards ─────────────────────── */
 .nav-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 14px;
   padding-top: 28px;
 }
@@ -192,6 +192,7 @@ nav {
 .nav-card-blue  { background: linear-gradient(145deg, #1d4ed8, #4f46e5); }
 .nav-card-red   { background: linear-gradient(145deg, #991b1b, #c0392b); }
 .nav-card-green { background: linear-gradient(145deg, #065f46, #0d9488); }
+.nav-card-amber { background: linear-gradient(145deg, #78350f, #d97706); }
 .nav-card .card-icon { font-size: 38px; margin-bottom: 12px; }
 .nav-card .card-label {
   font-size: 17px;
@@ -644,8 +645,8 @@ footer {
 
   .page-header h1 { font-size: 20px; }
 
-  /* Quick nav: 3 columns even on small phones */
-  .nav-grid { gap: 10px; padding-top: 22px; }
+  /* Quick nav: 2×2 on small phones */
+  .nav-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; padding-top: 22px; }
   .nav-card { padding: 20px 8px 16px; }
   .nav-card .card-icon { font-size: 28px; margin-bottom: 8px; }
   .nav-card .card-label { font-size: 14px; letter-spacing: 1px; }
@@ -664,4 +665,97 @@ footer {
 @media (max-width: 400px) {
   .nav-links a { padding: 6px 5px; font-size: 12px; }
   .nav-brand .class-badge { font-size: 13px; padding: 3px 10px; }
+}
+
+/* ── Math tool cards ─────────────────────── */
+.math-tool-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  padding-top: 4px;
+}
+.math-tool-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  background: var(--white);
+  border-radius: var(--r);
+  box-shadow: var(--shadow);
+  padding: 22px 20px 18px;
+  border: 2px solid transparent;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  position: relative;
+  overflow: hidden;
+}
+.math-tool-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #78350f, #d97706);
+}
+@media (hover: hover) {
+  .math-tool-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: #fde68a;
+  }
+}
+.math-tool-card:active { transform: scale(.97); }
+.math-tool-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+.math-tool-icon { font-size: 40px; line-height: 1; }
+.math-tool-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: #fef3c7;
+  color: #92400e;
+  letter-spacing: .5px;
+}
+.math-tool-name {
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--slate-900);
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+.math-tool-desc {
+  font-size: 13px;
+  color: var(--slate-500, #64748b);
+  line-height: 1.65;
+  flex: 1;
+  margin-bottom: 16px;
+}
+.math-tool-footer {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.math-tool-tag {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 9px;
+  border-radius: 20px;
+  background: var(--slate-100);
+  color: var(--slate-600);
+}
+.math-tool-launch {
+  margin-left: auto;
+  font-size: 13px;
+  font-weight: 700;
+  color: #d97706;
+}
+.math-more-hint {
+  text-align: center;
+  font-size: 12px;
+  color: var(--slate-400);
+  padding: 24px 0 0;
+  letter-spacing: .5px;
 }
