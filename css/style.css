@@ -729,38 +729,30 @@ footer {
   color: var(--slate-900);
   margin-right: 2px;
 }
-.dmc-header .note-pill { margin-left: auto; }
+.dmc-header .note-pill { flex-shrink: 0; }
+.dmc-header-space { flex: 1; }
 .dmc-chips { display: flex; flex-direction: column; gap: 8px; }
 .dmc-chips-row { display: flex; gap: 8px; flex-wrap: wrap; }
 
-.dmc-footer {
-  margin-top: 12px;
-  padding-top: 10px;
-  border-top: 1px solid var(--slate-100);
-}
 .dmc-cal-btn {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 7px;
-  width: 100%;
-  padding: 10px 16px;
-  border: 1.5px solid var(--slate-200);
-  border-radius: 8px;
-  background: var(--slate-50);
-  color: var(--slate-600);
+  gap: 6px;
+  padding: 7px 13px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #1d4ed8, #4f46e5);
+  color: #fff;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
-  transition: background .15s, border-color .15s, color .15s;
+  white-space: nowrap;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(79,70,229,.28);
+  transition: opacity .15s, transform .15s;
 }
-.dmc-cal-btn:active,
-.dmc-cal-btn:hover {
-  background: #eff6ff;
-  border-color: #bfdbfe;
-  color: #1e40af;
-}
-.dmc-cal-icon { font-size: 16px; line-height: 1; }
+.dmc-cal-btn:active { opacity: .82; transform: scale(.95); }
+.dmc-cal-icon { font-size: 18px; line-height: 1; }
 
 .math-tool-grid {
   display: grid;

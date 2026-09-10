@@ -313,7 +313,7 @@
       var card = document.createElement('div');
       card.className = 'duty-mobile-card' + (isPast ? ' dmc-past' : '');
 
-      /* Header: date + weekday pill + optional note pill */
+      /* Header: date + weekday pill + spacer + optional note pill + cal btn */
       var header = document.createElement('div');
       header.className = 'dmc-header';
 
@@ -324,6 +324,10 @@
 
       var wkEl = tds[1].querySelector('.wk-pill');
       if (wkEl) header.appendChild(wkEl.cloneNode(true));
+
+      var spacer = document.createElement('span');
+      spacer.className = 'dmc-header-space';
+      header.appendChild(spacer);
 
       var notePillEl = tds[6] ? tds[6].querySelector('.note-pill') : null;
       if (notePillEl) header.appendChild(notePillEl.cloneNode(true));
@@ -347,23 +351,20 @@
       });
       card.appendChild(chipsDiv);
 
-      /* Calendar button */
+      /* Calendar button — top-right in header */
       var date = parseDate(tds[0].textContent.trim(), year);
       if (date) {
         var noteText = notePillEl ? notePillEl.textContent.trim() : '';
         var ics      = makeICS(date, boyChips, girlChips, noteText);
         var filename = '执勤-' + date.y + pad(date.mo) + pad(date.d);
 
-        var footer = document.createElement('div');
-        footer.className = 'dmc-footer';
         var btn = document.createElement('button');
-        btn.className   = 'dmc-cal-btn';
-        btn.innerHTML   = '<span class="dmc-cal-icon">📅</span>添加到日历';
+        btn.className = 'dmc-cal-btn';
+        btn.innerHTML = '<span class="dmc-cal-icon">📅</span>添加到日历';
         btn.addEventListener('click', (function (i, f) {
           return function () { openICS(i, f); };
         })(ics, filename));
-        footer.appendChild(btn);
-        card.appendChild(footer);
+        header.appendChild(btn);
       }
 
       container.appendChild(card);
