@@ -733,6 +733,35 @@ footer {
 .dmc-chips { display: flex; flex-direction: column; gap: 8px; }
 .dmc-chips-row { display: flex; gap: 8px; flex-wrap: wrap; }
 
+.dmc-footer {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--slate-100);
+}
+.dmc-cal-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  width: 100%;
+  padding: 10px 16px;
+  border: 1.5px solid var(--slate-200);
+  border-radius: 8px;
+  background: var(--slate-50);
+  color: var(--slate-600);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .15s, border-color .15s, color .15s;
+}
+.dmc-cal-btn:active,
+.dmc-cal-btn:hover {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+  color: #1e40af;
+}
+.dmc-cal-icon { font-size: 16px; line-height: 1; }
+
 .math-tool-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
