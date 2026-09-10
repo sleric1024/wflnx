@@ -737,6 +737,8 @@ footer {
 .duty-rule-body strong { color: #1e3a8a; }
 
 /* ── Duty mobile cards ───────────────────── */
+.sec-past-toggle { cursor: pointer; -webkit-tap-highlight-color: transparent; user-select: none; }
+.sec-past-chevron { font-size: 13px; color: #94a3b8; margin-left: 6px; }
 .duty-cards-mobile { display: none; }
 .duty-mobile-cards { display: flex; flex-direction: column; gap: 10px; }
 
