@@ -441,6 +441,10 @@ nav {
   background: var(--white);
   position: relative;
 }
+.sec-now-wrap + .duty-table-wrap {
+  border: 2px solid #c7d2fe;
+  animation: dmc-glow 2.4s ease-in-out infinite;
+}
 .duty-table {
   width: 100%;
   border-collapse: collapse;
