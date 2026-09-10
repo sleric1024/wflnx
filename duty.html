@@ -249,10 +249,7 @@
 
     var lines = [
       '男生：' + boys,
-      '女生：' + girls
-    ];
-    if (noteText) lines.push('备注：' + noteText);
-    lines.push(
+      '女生：' + girls,
       '',
       '【学生礼仪岗】7:35–7:55',
       '· 7:35 前到校，书包先存传达室，绶带领取后归还',
@@ -332,7 +329,6 @@
       var notePillEl = tds[6] ? tds[6].querySelector('.note-pill') : null;
       if (notePillEl) header.appendChild(notePillEl.cloneNode(true));
       card.appendChild(header);
-
       /* Chip rows */
       var chipsDiv = document.createElement('div');
       chipsDiv.className = 'dmc-chips';
@@ -351,7 +347,7 @@
       });
       card.appendChild(chipsDiv);
 
-      /* Calendar button — top-right in header */
+      /* Calendar button — right-aligned in chips area */
       var date = parseDate(tds[0].textContent.trim(), year);
       if (date) {
         var noteText = notePillEl ? notePillEl.textContent.trim() : '';
@@ -364,7 +360,11 @@
         btn.addEventListener('click', (function (i, f) {
           return function () { openICS(i, f); };
         })(ics, filename));
-        header.appendChild(btn);
+
+        var calRow = document.createElement('div');
+        calRow.className = 'dmc-chips-row dmc-cal-row';
+        calRow.appendChild(btn);
+        chipsDiv.appendChild(calRow);
       }
 
       container.appendChild(card);
