@@ -729,6 +729,10 @@ footer {
 .duty-mobile-card.dmc-past {
   background: #f8fafc;
   box-shadow: var(--shadow-sm);
+  padding: 10px 14px;
+}
+.duty-mobile-card.dmc-past + .duty-mobile-card.dmc-past {
+  margin-top: -4px;
 }
 .dmc-header {
   display: flex;
