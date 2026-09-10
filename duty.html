@@ -222,5 +222,95 @@
 
 <footer>© 2026 Z3C 班 · 湖州市上海世外教育南浔实验学校</footer>
 
+<script>
+(function () {
+  function buildCards(tableWrap, isPast) {
+    var table = tableWrap.querySelector('.duty-table');
+    if (!table) return null;
+    var rows = table.querySelectorAll('tbody tr');
+    var container = document.createElement('div');
+    container.className = 'duty-mobile-cards';
+
+    rows.forEach(function (row) {
+      var tds = row.querySelectorAll('td');
+      if (tds.length < 5) return;
+
+      var card = document.createElement('div');
+      card.className = 'duty-mobile-card' + (isPast ? ' dmc-past' : '');
+
+      // Header: date + weekday pill + optional note pill
+      var header = document.createElement('div');
+      header.className = 'dmc-header';
+
+      var dateEl = document.createElement('span');
+      dateEl.className = 'dmc-date';
+      dateEl.textContent = tds[0].textContent.trim();
+      header.appendChild(dateEl);
+
+      var wkEl = tds[1].querySelector('.wk-pill');
+      if (wkEl) header.appendChild(wkEl.cloneNode(true));
+
+      if (tds[6]) {
+        var noteEl = tds[6].querySelector('.note-pill');
+        if (noteEl) header.appendChild(noteEl.cloneNode(true));
+      }
+      card.appendChild(header);
+
+      // Chips: boys row (cols 2,3) then girls row (cols 4,5)
+      var chipsDiv = document.createElement('div');
+      chipsDiv.className = 'dmc-chips';
+      [[2, 3], [4, 5]].forEach(function (pair) {
+        var chipRow = document.createElement('div');
+        chipRow.className = 'dmc-chips-row';
+        pair.forEach(function (ci) {
+          var chip = tds[ci] && tds[ci].querySelector('.chip');
+          if (chip) chipRow.appendChild(chip.cloneNode(true));
+        });
+        chipsDiv.appendChild(chipRow);
+      });
+      card.appendChild(chipsDiv);
+      container.appendChild(card);
+    });
+
+    return container;
+  }
+
+  function applyLayout() {
+    var mobile = window.innerWidth < 700;
+    var tableWraps = document.querySelectorAll('.duty-table-wrap');
+    var scrollHints = document.querySelectorAll('.scroll-hint');
+
+    tableWraps.forEach(function (wrap, idx) {
+      var next = wrap.nextElementSibling;
+      var mobileEl = (next && next.classList.contains('duty-cards-mobile')) ? next : null;
+
+      if (mobile) {
+        if (!mobileEl) {
+          var cards = buildCards(wrap, idx === 0);
+          if (cards) {
+            mobileEl = document.createElement('div');
+            mobileEl.className = 'duty-cards-mobile';
+            mobileEl.appendChild(cards);
+            wrap.insertAdjacentElement('afterend', mobileEl);
+          }
+        }
+        wrap.style.display = 'none';
+        if (mobileEl) mobileEl.style.display = '';
+      } else {
+        wrap.style.display = '';
+        if (mobileEl) mobileEl.style.display = 'none';
+      }
+    });
+
+    scrollHints.forEach(function (hint) {
+      hint.style.display = mobile ? 'none' : '';
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', applyLayout);
+  window.addEventListener('resize', applyLayout);
+})();
+</script>
+
 </body>
 </html>

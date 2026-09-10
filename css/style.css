@@ -441,15 +441,6 @@ nav {
   background: var(--white);
   position: relative;
 }
-.duty-table-wrap::after {
-  content: '';
-  position: absolute;
-  top: 0; right: 0;
-  width: 32px; height: 100%;
-  background: linear-gradient(to right, transparent, rgba(255,255,255,.85));
-  pointer-events: none;
-  border-radius: 0 var(--r) var(--r) 0;
-}
 .duty-table {
   width: 100%;
   border-collapse: collapse;
@@ -708,6 +699,40 @@ footer {
 }
 .sched-table-mobile .subj-en { font-size: 9px; }
 .sched-table-mobile .subj-teacher { font-size: 10px; }
+
+/* ── Duty mobile cards ───────────────────── */
+.duty-cards-mobile { display: none; }
+.duty-mobile-cards { display: flex; flex-direction: column; gap: 10px; }
+
+.duty-mobile-card {
+  background: var(--white);
+  border-radius: var(--r);
+  box-shadow: var(--shadow);
+  padding: 14px 16px;
+}
+.duty-mobile-card.dmc-past {
+  background: #f8fafc;
+  box-shadow: var(--shadow-sm);
+}
+.dmc-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid var(--slate-100);
+}
+.dmc-date {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--slate-900);
+  margin-right: 2px;
+}
+.dmc-header .note-pill { margin-left: auto; }
+.dmc-chips { display: flex; flex-direction: column; gap: 8px; }
+.dmc-chips-row { display: flex; gap: 8px; flex-wrap: wrap; }
+
 .math-tool-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
