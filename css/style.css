@@ -392,9 +392,9 @@ nav {
 .sched-table tbody tr:hover td { filter: brightness(.97); }
 .subj-tag {
   display: inline-block;
-  font-size: 15px;
+  font-size: 12px;
   font-weight: 700;
-  padding: 3px 10px;
+  padding: 3px 8px;
   border-radius: 999px;
   border: 1.5px solid currentColor;
   margin-bottom: 3px;
