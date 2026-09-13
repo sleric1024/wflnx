@@ -992,11 +992,19 @@ footer {
   text-align: center;
   font-size: 11px;
   font-weight: 700;
-  color: var(--slate-400);
+  color: var(--slate-500);
   background: #f8fafc;
   white-space: nowrap;
-  padding: 0 6px;
+  padding: 0 8px;
   border: 1px solid #e8ecf5;
+  line-height: 1.5;
+}
+.jst-period span {
+  display: block;
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--slate-400);
+  margin-top: 1px;
 }
 .jst-lunch {
   text-align: center;
@@ -1021,3 +1029,20 @@ footer {
   line-height: 1.4;
 }
 .je-table-note { font-size: 12px; color: var(--slate-400); margin-top: 8px; text-align: right; }
+
+@media print {
+  nav, footer, .page-header, .je-note, .je-changes { display: none !important; }
+  body { background: #fff; }
+  .page { padding: 0; max-width: none; }
+  .journal-entry { box-shadow: none; border: none; padding: 0; }
+  .je-header { margin-bottom: 10px; }
+  .je-table-wrap { border: none; overflow: visible; }
+  .je-sched-table { min-width: 0; width: 100%; font-size: 11px; }
+  .je-sched-table thead th { font-size: 11px; padding: 5px 4px; }
+  .je-sched-table td.subj-cell { padding: 5px 3px; min-width: 0; }
+  .je-sched-table .subj-tag { font-size: 11px; padding: 2px 5px; border-radius: 4px; }
+  .je-sched-table .subj-teacher { font-size: 9px; }
+  .jst-period { font-size: 10px; padding: 0 4px; }
+  .jst-period span { font-size: 9px; }
+  .je-change-badge { font-size: 8px; }
+}
