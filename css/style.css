@@ -902,3 +902,122 @@ footer {
   padding: 24px 0 0;
   letter-spacing: .5px;
 }
+
+/* ── Journal ─────────────────────────────── */
+.journal-entry {
+  background: var(--white);
+  border-radius: var(--r);
+  box-shadow: var(--shadow);
+  padding: 20px 20px 16px;
+  margin-bottom: 20px;
+}
+.je-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.je-week-badge {
+  font-size: 13px;
+  font-weight: 800;
+  background: #1e293b;
+  color: #fff;
+  border-radius: 6px;
+  padding: 3px 9px;
+  flex-shrink: 0;
+}
+.je-date {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--slate-600);
+  flex: 1;
+}
+.je-tag {
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 20px;
+  padding: 3px 10px;
+  flex-shrink: 0;
+}
+.je-tag-adj { background: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
+.je-note { font-size: 13px; color: var(--slate-500); margin-bottom: 12px; }
+.je-changes {
+  background: #f8fafc;
+  border: 1px solid var(--slate-100);
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.jec-row { display: flex; align-items: baseline; gap: 8px; font-size: 13px; }
+.jec-day { font-weight: 700; color: var(--slate-700); width: 30px; flex-shrink: 0; }
+.jec-period { color: var(--slate-400); font-size: 12px; width: 64px; flex-shrink: 0; }
+.jec-desc { color: var(--slate-700); }
+.je-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 6px;
+  border: 1px solid var(--slate-100);
+}
+.je-sched-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 480px;
+}
+.je-sched-table thead th {
+  background: #f1f5f9;
+  padding: 7px 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--slate-500);
+  text-align: center;
+  white-space: nowrap;
+  border-bottom: 2px solid var(--slate-200);
+}
+.je-sched-table thead th:first-child { width: 42px; }
+.je-sched-table td.subj-cell {
+  padding: 8px 6px;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid #e8ecf5;
+  position: relative;
+  min-width: 72px;
+}
+.je-sched-table .subj-tag { font-size: 13px; }
+.je-sched-table .subj-teacher { font-size: 11px; color: #64748b; display: block; margin-top: 2px; }
+.jst-period {
+  text-align: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--slate-400);
+  background: #f8fafc;
+  white-space: nowrap;
+  padding: 0 6px;
+  border: 1px solid #e8ecf5;
+}
+.jst-lunch {
+  text-align: center;
+  background: #f8fafc;
+  color: var(--slate-400);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px;
+  border: 1px solid #e8ecf5;
+}
+.je-cell-changed { outline: 2px solid #f59e0b; outline-offset: -2px; }
+.je-change-badge {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  font-size: 9px;
+  font-weight: 800;
+  background: #f59e0b;
+  color: #fff;
+  border-radius: 3px;
+  padding: 1px 3px;
+  line-height: 1.4;
+}
+.je-table-note { font-size: 12px; color: var(--slate-400); margin-top: 8px; text-align: right; }
